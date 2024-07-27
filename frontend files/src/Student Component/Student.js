@@ -12,8 +12,13 @@ function Student() {
             .catch(err => console.log(err));
         }, [])
 
-    function handleDelete(e) {
-        console.log(e);
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete('http://localhost:8081/student3/'+id)
+            window.location.reload()
+        } catch (err) {
+            console.log(err);
+        }
     }
     
     return (
